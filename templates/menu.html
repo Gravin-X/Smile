@@ -8,11 +8,14 @@ menu
     <div class="products">
     {% for product in products %}
         <div class="product-box">
-            <h3>{{ product[0] }}</h3>
-            <p>{{ product[1] }}</p>
-            <p><strong>Volume: </strong>{{ product[2] }}</p>
-            <p><strong>Price: </strong>${{ product[3] }}</p>
+            <h3>{{ product[1] }}</h3>
+            <p>{{ product[2] }}</p>
+            <p><strong>Volume: </strong>{{ product[3] }}</p>
+            <p><strong>Price: </strong>${{ product[5] }}</p>
             <img src="/static/images/{{ product[4] }}.jpg">
+            {% if logged_in %}
+            <a href="/addtocart/{{ product[0] }}">Add to cart</a>
+            {% endif %}
         </div>
     {% endfor %}
     </div>
